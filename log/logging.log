@@ -1,0 +1,33 @@
+CONFIGS  { env: { production: false, mod: 'develop' },
+  db: 
+   { dialect: 'postgres',
+     port: 5432,
+     host: 'localhost',
+     user: 'harion',
+     pass: 'paladin',
+     name: 'Nami' } }
+
+=======================================================================
+Nami System loaded Modules: 
+-----------------------------------------------------------------------
+
+ { virtual: { common: [Getter], cronjob: [Getter] },
+  entity: 
+   { common: { post_update_price: [Function] },
+     cronjob: { post_call: [Function] } } }
+
+=======================================================================
+[34mNami System: [31mSTRATED[0m
+=======================================================================
+
+
+
+==================================================
+ Fri 2017-04-28 03:21:25  - Nami System call module API:
+--------------------------------------------------
+ModuleAPI: [31m common [0m
+Action: [34m update_price [0m
+Method: [32m post [0m
+==================================================
+
+parser  {}

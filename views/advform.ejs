@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/jquery-ui.min.css' />
+    <link rel='stylesheet' href='/stylesheets/jquery-ui.structure.min.css' />
+    <link rel='stylesheet' href='/stylesheets/jquery-ui.theme.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <style>
+          #CountData td,th{
+                border: solid 1px #ccc;
+                border-collapse: collapse;
+                padding: 3px;
+            }
+          #CountData th{
+              text-align: left;
+              padding-right: 10px;
+          }
+      </style>
+
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/jquery-ui.min.js"></script>
+      <script>
+          $(document).ready(function(){
+              $( ".datepick" ).datepicker({
+                  inline: true,
+                  dateFormat: "yy-mm-dd"
+              });
+          });
+      </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form>
+    <div>
+        <label for="startDate" >Start :</label><input name="startDate" id="startDate" class="datepick" value="<%= startDate %>">
+        <label for="endDate" >End :</label><input name="endDate" id="endDate" class="datepick" value="<%= endDate %>">
+        <label for="bid" >Banner ID :</label><input name="bid" id="bid" value="<%= bid %>"/>
+        <input type="submit">
+    </div>
+    </form>
+  <h2>Requests</h2>
+  <table id="CountData">
+      <tr><th>Date</th><th>Banner ID</th><th>Count</th></tr>
+      <% for(var i in data) {%>
+      <tr>
+          <td><%= data[i].DDATE.toISOString().substring(0,10) %></td>
+          <td><%= data[i].bid %></td>
+          <td><%= data[i].CNT %></td>
+
+      </tr>
+      <% } %>
+  </table>
+   <h2>Chargings</h2>
+    <table id="CountData2">
+        <tr><th>Date</th><th>Banner ID</th><th>Count</th><th>PF</th></tr>
+        <% for(var i in chdata) {%>
+        <tr>
+            <td><%= chdata[i].DDATE.toISOString().substring(0,10) %></td>
+            <td><%= chdata[i].bid %></td>
+            <td><%= chdata[i].CNT %></td>
+            <td><%= chdata[i].CNTO %></td>
+
+        </tr>
+        <% } %>
+    </table>
+
+  </body>
+</html>

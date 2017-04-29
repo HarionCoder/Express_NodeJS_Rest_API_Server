@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+var debug = require('debug')('nodeapi');
+var server = require('../server');
+
+server.set('port', process.env.PORT || 80);
+
+var system = server.listen(server.get('port'), function() {
+    debug('Nami is listening on port ' + system.address().port);
+});
